@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "ESNext", // * модульная система (commonJS, es6 и тд)
+    "target": "es5", // * компиляция в es5
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    /* * ---------
+       * esModuleInterop позволяет работать с пакетами, которые используют
+       * commonJS как с обычными пакетами с помощью import (require() module.export) = commonJS
+       * Прим:
+       ? import Moment from 'moment';
+       ? без флага esModuleInterop результат undefined
+       ? console.log(Moment);
+       ? с флагом результат [object object]
+       ? console.log(Moment);
+     * --------- */
+    "esModuleInterop": true,
+    /* * ---------
+     * Если какая-либо библиотека не имеет default import,
+     * лоадеры вроде ts-config или babel-loader автоматически создают их
+     * Вместо импорта:
+     ? import * as React from 'react';
+     * Можно писать так:
+     ? import React from 'react';
+     * --------- */
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
