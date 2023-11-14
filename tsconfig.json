@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "module": "ESNext", // * модульная система (commonJS, es6 и тд)
     "target": "es5", // * компиляция в es5
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     "baseUrl": ".", // * Для абсолютного импорта
