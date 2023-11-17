@@ -8,6 +8,7 @@ export enum AppRoutes {
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
+  // ? Record проходит по всем значениям (map) enum AppRoutes, поэтому или все значения, или ошибка
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
 }
