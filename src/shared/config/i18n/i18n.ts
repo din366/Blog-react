@@ -21,15 +21,15 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'ru',
-    debug: __IS_DEV__, // ? глобальная переменная isDev из webpack (создана в config-build-types-buildPlugins.ts)
+    debug: __IS_DEV__,
+    // ? глобальная переменная isDev из webpack (создана в config-build-types-buildPlugins.ts)
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
     backend: {
       loadPath: './locales/{{lng}}/{{ns}}.json',
-    }
+    },
   });
-
 
 export default i18n;
