@@ -12,8 +12,9 @@ const App = () => {
   return (
     <div>
       <div className={classNames('app', {}, [theme])}>
-        <Navbar />
+        {/* eslint-disable-next-line i18next/no-literal-string */}
         <Suspense fallback="">
+          <Navbar />
           <div className="content-page">
             <Sidebar />
             <AppRouter />
