@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] => [
@@ -24,4 +25,7 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 
   new ReactRefreshPlugin(), // ? для корректного обновления react при hot reload
   new webpack.HotModuleReplacementPlugin(), // ? горячее обновление проекта без перезагрузки
+  new BundleAnalyzerPlugin({
+    openAnalyzer: false,
+  }), // ? плагин для анализа бандла
 ];
