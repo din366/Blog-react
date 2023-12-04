@@ -7,23 +7,16 @@ import path from 'path';
 
 export default {
   clearMocks: true,
-  testEnvironment: 'jsdom',
-
-  // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
     '\\\\node_modules\\\\',
   ],
 
-  // An array of directory names to be searched recursively up from the requiring module's location
+  // An array of regexp pattern strings used to skip coverage collection
   moduleDirectories: [
     'node_modules',
   ],
 
-  modulePaths: [ // ? absolute project path
-    '<rootDir>src',
-  ],
-
-  // An array of file extensions your modules use
+  // An array of directory names to be searched recursively up from the requiring module's location
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -33,20 +26,27 @@ export default {
     'node',
   ],
 
-  // The glob patterns Jest uses to detect test files
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-  ],
-
-  // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../',
-
-  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'], // ? for react testing library
-
   moduleNameMapper: { // ? for react testing library (because there was an error when connecting css modules)
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'), // ? svg будут заменяться пустым компонентом из jestEmptyComponents.tsx
   },
+
+  // An array of file extensions your modules use
+  modulePaths: [ // ? absolute project path
+    '<rootDir>src',
+  ],
+
+  // The glob patterns Jest uses to detect test files
+  rootDir: '../../',
+
+  // The root directory that Jest should scan for tests and modules within
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+
+  testEnvironment: 'jsdom', // ? for react testing library
+
+  testMatch: [
+    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+  ],
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -183,9 +183,6 @@ export default {
 
   // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
   // timers: "real",
-
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
