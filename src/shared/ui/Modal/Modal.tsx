@@ -64,7 +64,6 @@ const Modal = ({
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam consequuntur iure, modi nobis officiis qui quod quos suscipit voluptates. Impedit porro reiciendis repellendus voluptatem. Architecto autem magni quasi voluptatibus?
           </div>
         </div>
       </div>
