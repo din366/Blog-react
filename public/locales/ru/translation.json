@@ -12,5 +12,7 @@
   "Обновить страницу": "Обновить страницу",
   "throw Error": "throw Error",
   "Короткий язык": "RU",
-  "Войти": "Войти"
+  "Войти": "Войти",
+  "increment": "increment",
+  "decrement": "decrement"
 }
