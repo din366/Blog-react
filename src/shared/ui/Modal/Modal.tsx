@@ -11,20 +11,32 @@ interface ModalProps {
   children?: ReactNode,
   isOpen?:boolean,
   onClose?: () => void,
+  lazy?: boolean, // ? для ленивой загрузки модалки
 }
 
 const ANIMATION_DELAY = 300;
 
 const Modal = ({
-  className, children, isOpen, onClose,
+  className,
+  children,
+  isOpen,
+  onClose,
+  lazy,
 }:ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
+
+  useEffect(() => {
+    if (isOpen) { // ? при открытии срабатывает isMounted и после рендерится модалка с флагом lazy
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -56,6 +68,10 @@ const Modal = ({
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
+
+  if (lazy && !isMounted) { // ? с флагом lazy модалка не мотируется пока не будет открыта пользователем
+    return null;
+  }
 
   return (
     <Portal>
